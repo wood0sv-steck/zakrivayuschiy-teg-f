@@ -13,4 +13,49 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--variation-font), "Open Sans";
+  font-variation-settings: "wght" var(--font-paragraph-weight);
+  font-size: 18px;
+  line-height: 21px;
+  background-image: var(--page-gradient);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 0px 0px;
+  
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  block-size: clamp(327px, 100vw, 368px);
+  padding-block: clamp(122px, 100vh, 130px);
+  font-family: var(--accident-font);
+  margin:100px auto;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.card {
+  inline-size: var(--card-width);
+  white-space: wrap;
+}
+.card__section {
+  min-block-size: clamp(820px, 100vw, 956px);
+  background-color: #fff;
+   margin: auto;
+}
+.card__image {
+  display: block;
+  object-fit: cover;
+  margin: auto;
+  max-inline-size: clamp(371px, 100vw, 696px);
+  max-block-size: clamp(371px, 100vw, 696px);
 }
