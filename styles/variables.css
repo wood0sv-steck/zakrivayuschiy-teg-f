@@ -11,7 +11,11 @@
     ),
     repeating-linear-gradient(180deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px),
     linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
-  --card-width: clamp(370px, 100%, 700px);
+  --card-width: clamp(320px, 100%, 700px);
   --indentation-card: 25px;
   --label-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  --contour-color: #000;
+  --animation-heart-main-body: red;
+  --animation-heart-core: #fff;
+  --animation-heart-sparks: red;
 }
