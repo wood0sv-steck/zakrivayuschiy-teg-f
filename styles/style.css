@@ -122,6 +122,9 @@
   padding: 10px 35px;
   cursor: pointer;
 }
+.card__like-button:focus{
+  outline: none;
+}
 .card__like-button:focus-visible {
   box-shadow: 2px 2px 0px 0px var(--global-color);
   outline: none;
