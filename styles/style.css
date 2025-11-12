@@ -55,9 +55,6 @@
   font-size: 18px;
   line-height: 21px;
 }
-.card__title {
-  font-weight: var(--font-title-weight);
-}
 
 .main {
   gap: 50px;
@@ -84,8 +81,8 @@
 }
 .card__title {
   padding: 6px 10px;
-  font-weight: var(--font-title-weight);
   line-height: 1.2;
+  font-variation-settings: "wght" var(--font-title-weight, 410);
 }
 .image-block {
   position: relative;
@@ -117,7 +114,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap:7px;
+  gap: 7px;
   margin-inline-end: var(--indentation-card);
   margin-block: var(--indentation-card);
 }
@@ -136,8 +133,8 @@
   transition: outline 0.3s ease;
 }
 .card__icon-button {
-  outline: none;
   border: 0;
+  outline: none;
   background-color: transparent;
   transition: 0.3s ease;
   cursor: pointer;
