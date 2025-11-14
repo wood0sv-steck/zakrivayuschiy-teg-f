@@ -32,11 +32,11 @@ a {
 
 button,
 input {
+  margin: 0;
+  padding: 0;
   color: currentColor;
   font-family: inherit;
   font-size: inherit;
-  margin: 0;
-padding:0;
 }
 
 ul,
@@ -46,10 +46,10 @@ ol {
 
 .visually-hidden {
   position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
+  inline-size: 1px;
+  block-size: 1px;
   clip-path: inset(50%);
   white-space: nowrap;
 }

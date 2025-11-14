@@ -9,8 +9,13 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 */
 
+/*Никита, добрый день!
+Постаралась максимально поправить все комментарии "можно улучшить".
+Кроме DOM. Это я учла и в дальнейшем буду следовать этому совету. Сейчас не поправила исключительно потому, что если мы будем что-то еще исправлять, я не смогу вовремя разобраться что и где и до дедлайна не упсею. Надеюсь на понимание.
+Еще, относительно файла .editorconfig. Отправляю без него, т.к. пока ты проверяешь, я постараюсь вникнуть в это. Пока смутно понимаю что я могу сделать. Надо читать матчасть.*/
+
 .page {
-  font-family: var(--accident-font), "Open Sans";
+  font-family: var(--accident-font), "fantasy";
   font-weight: 400;
   font-size: 14px;
   background-image: var(--page-gradient);
@@ -27,14 +32,13 @@
   gap: 18px;
   margin: 100px auto 98px;
   border: 2px solid #000;
-  padding-block: clamp(122px, 100vh, 130px);
-  font-family: var(--accident-font), "Open Sans";
+  padding-block: 130px;
+  font-family: var(--accident-font), "fantasy";
   font-weight: 400;
   text-transform: uppercase;
   background-color: #fff;
-  block-size: 368px;
   @media (width <=376px) {
-    block-size: 325px;
+    padding-block: 122px;
   }
 }
 .card {
@@ -43,11 +47,11 @@
   inline-size: var(--card-width);
 }
 .title__header-logo {
-  font-size: calc(3.0625rem + ((1vw - 3.2px) * 2.2727));
+  font-size: clamp(49px, calc(3.0625rem + ((1vw - 3.75px) * 4.9231)), 65px);
 }
 
 .title__header-slogan {
-  font-size: calc(0.875rem + ((1vw - 3.75px) * 1.3867));
+  font-size: clamp(14px, calc(0.875rem + ((1vw - 3.75px) * 2.7692)), 23px);
 }
 .card__title,
 .card__text {
@@ -59,24 +63,23 @@
 .main {
   gap: 50px;
   margin: auto;
-  background-color: #fff;
 }
 
 .card__section {
   flex-wrap: wrap;
   justify-content: space-between;
-  border: 2px solid var(--global-color);
+  border: 2px solid var(--global-color, #000);
   background-color: #fff;
 }
 .card__text {
-  padding-inline: var(--indentation-card);
-  padding-block-start: var(--indentation-card);
+  padding-inline: var(--indentation-card, 25px);
+  padding-block-start: var(--indentation-card, 25px);
 }
 .card__image-block {
   display: block;
   width: 100%;
   object-fit: cover;
-  outline: 2px solid var(--global-color);
+  outline: 2px solid var(--global-color, #000);
   aspect-ratio: 1 / 1;
 }
 .card__title {
@@ -90,15 +93,18 @@
 /*блок с независимым HTML*/
 .label__image-block {
   position: absolute;
+  display: block;
   opacity: 0.4;
-  color: var(--global-color);
-  font-family: var(--accident-font);
+  color: var(--global-color, #000);
+  font-family: var(--accident-font), "fantasy";
   font-size: 14px;
+  line-height: 150%;
+  text-align: end;
   text-transform: uppercase;
   text-shadow: var(--label-shadow);
-  -webkit-text-stroke: 1px #fff;
-  inset-block-start: var(--indentation-card);
-  inset-inline-end: var(--indentation-card);
+  max-inline-size: 50%;
+  inset-block-start: var(--indentation-card, 25px);
+  inset-inline-end: var(--indentation-card, 25px);
   mix-blend-mode: hard-light;
 }
 @supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
@@ -115,24 +121,26 @@
   justify-content: flex-end;
   align-items: center;
   gap: 7px;
-  margin-inline-end: var(--indentation-card);
-  margin-block: var(--indentation-card);
+  margin-inline-end: var(--indentation-card, 25px);
+  margin-block: var(--indentation-card, 25px);
 }
 .card__like-button {
   padding: 10px 35px;
+  background-color: transparent;
   cursor: pointer;
 }
 .card__like-button:focus {
   outline: none;
 }
 .card__like-button:focus-visible {
-  box-shadow: 2px 2px 0px 0px var(--global-color);
+  box-shadow: 2px 2px 0px 0px var(--global-color, #000);
   outline: none;
+  transition: box-shadow 0.3s ease;
 }
 
 /*Heart*/
 .card__icon-button:focus-visible {
-  outline: 2px solid var(--global-color);
+  outline: 2px solid var(--global-color, #000);
   transition: outline 0.3s ease;
 }
 .card__icon-button {
@@ -157,22 +165,38 @@
   gap: 8px;
   margin-block-start: 50px;
   margin-block-end: 100px;
-  border: 2px solid var(--global-color);
+  border: 0;
   padding: 15px 17px;
-  font-family: var(--accident-font);
+  outline: 2px solid var(--global-color, #000);
+  font-family: var(--accident-font), "fantasy";
   text-align: center;
+  transition: outline 0.5s ease-in-out;
   cursor: pointer;
+
   @media (min-width: 696px) {
     flex-direction: row;
   }
 }
 .card__save-floppy {
+  position: relative;
+  z-index: 2;
   flex: 0 0 21px;
+  fill: var(--global-color);
+  transition: 0.5s ease-in-out;
   max-inline-size: 21px;
   @media (width <=376px) {
     flex: 0 0 28px;
     max-inline-size: 28px;
   }
+}
+.card__save-button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--global-color, #000);
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+.card__save-button:hover {
+  outline: 2px solid transparent;
+  transition: outline 0.5s ease-in-out;
 }
 
 /*псевдоэлемент*/
@@ -183,13 +207,13 @@
   z-index: 1;
   width: 0%;
   height: 100%;
-  background-color: var(--global-color);
+  background-color: var(--global-color, #000);
   transition: 0.5s ease-in-out;
 }
 .focus-button:hover::after {
   z-index: 1;
   width: 100%;
-  background-color: var(--global-color);
+  background-color: var(--global-color, #000);
   transition: 0.5s ease-in-out;
 }
 .focus-button:hover {
@@ -197,6 +221,15 @@
     position: relative;
     z-index: 2;
     color: #fff;
+    mix-blend-mode: difference;
+  }
+}
+.focus-button:hover {
+  .card__save-floppy {
+    position: relative;
+    z-index: 2;
+    fill: #fff;
+    mix-blend-mode: difference;
   }
 }
 .button__text {
@@ -206,9 +239,8 @@
   transition: 0.5s ease-in-out;
 }
 .focus-button {
-  font-family: var(--accident-font);
+  font-family: var(--accident-font), "fantasy";
   font-size: 14px;
-  background-color: transparent;
 }
 /*focus*/
 .card__focus-button {
@@ -218,15 +250,14 @@
 
 /*dialog-section*/
 dialog {
-  position: fixed;
-  margin: 0;
-  padding: 30px 40px;
-  font-family: var(--accident-font);
+  padding: 28px;
+  outline: 2px solid var(--global-color, #000);
+  font-family: var(--accident-font), "fantasy";
   font-size: 14px;
   text-transform: uppercase;
-  inset-block-start: 50%;
-  inset-inline-start: 50%;
-  translate: -50% -50%;
+  @media (width <= 376px) {
+    padding: 26px 38px;
+  }
 }
 dialog:not([open]) {
   opacity: 0;
@@ -238,15 +269,26 @@ dialog::backdrop {
 }
 .close {
   width: 100%;
-  padding: 12px 116px;
+  padding: 10px 133px;
   cursor: pointer;
+  @media (width <= 376px) {
+    padding: 11px 114px;
+  }
 }
 .card__save-button_close[open] {
-  outline: 1px solid var(--global-color);
-  inline-size: clamp(341px, 100vw, 353px);
-  block-size: 191px;
+  max-inline-size: clamp(338px, 100vw, 351px);
+  @media (width <= 376px) {
+    max-inline-size: clamp(338px, 50vw, 351px);
+  }
 }
-
+.close:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--global-color, #000);
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+.dialog__section-paragraph {
+  line-height: 150%;
+}
 .card__focus-button-save {
   margin-block-start: 30px;
 }
@@ -296,35 +338,35 @@ dialog::backdrop {
   transition: fill 0.3s 0.03s linear;
 }
 .heart-contour {
-  fill: var(--contour-color);
+  fill: var(--contour-color, #000);
   transition: fill 0.1s 0s linear;
 }
 .like-icon:hover .heart-core {
-  fill: var(--contour-color);
+  fill: var(--contour-color, #000);
   transition: fill 0.3s 0s linear;
 }
 .like-icon:hover .heart-main-body {
-  fill: var(--contour-color);
+  fill: var(--contour-color, #000);
   transition: fill 0.3s 0.05s linear;
 }
 .like-icon:active .heart-core {
-  fill: var(--animation-heart-main-body);
+  fill: var(--animation-heart-main-body, red);
   transition: fill 0.3s 0s linear;
 }
 .like-icon:active .heart-main-body {
-  fill: var(--animation-heart-main-body);
+  fill: var(--animation-heart-main-body, red);
   transition: fill 0.3s 0.05s linear;
 }
 .like-icon.is-liked .heart-core {
-  fill: var(--animation-heart-main-body);
+  fill: var(--animation-heart-main-body, red);
   transition: fill 0.3s 0s linear;
 }
 .like-icon.is-liked .heart-main-body {
-  fill: var(--animation-heart-main-body);
+  fill: var(--animation-heart-main-body, red);
   transition: fill 0.3s 0.05s linear;
 }
 .like-icon.is-liked .heart-contour {
-  fill: var(--animation-heart-main-body);
+  fill: var(--animation-heart-main-body, red);
   transition: fill 0.3s 0.06s linear;
 }
 .like-icon.is-liked .heart {
