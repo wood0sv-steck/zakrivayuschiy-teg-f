@@ -10,12 +10,10 @@
 */
 
 /*Никита, добрый день!
-Постаралась максимально поправить все комментарии "можно улучшить".
-Кроме DOM. Это я учла и в дальнейшем буду следовать этому совету. Сейчас не поправила исключительно потому, что если мы будем что-то еще исправлять, я не смогу вовремя разобраться что и где и до дедлайна не упсею. Надеюсь на понимание.
-Еще, относительно файла .editorconfig. Отправляю без него, т.к. пока ты проверяешь, я постараюсь вникнуть в это. Пока смутно понимаю что я могу сделать. Надо читать матчасть.*/
+*/
 
 .page {
-  font-family: var(--accident-font), "fantasy";
+  font-family: var(--accident-font);
   font-weight: 400;
   font-size: 14px;
   background-image: var(--page-gradient);
@@ -33,7 +31,7 @@
   margin: 100px auto 98px;
   border: 2px solid #000;
   padding-block: 130px;
-  font-family: var(--accident-font), "fantasy";
+  font-family: var(--accident-font);
   font-weight: 400;
   text-transform: uppercase;
   background-color: #fff;
@@ -55,7 +53,7 @@
 }
 .card__title,
 .card__text {
-  font-family: var(--variation-font), "Open Sans";
+  font-family: var(--variation-font), sans-serif;
   font-size: 18px;
   line-height: 21px;
 }
@@ -114,6 +112,13 @@
     text-stroke: 1px #fff;
   }
 }
+.focus-button {
+  font-family: var(--accident-font), "fantasy";
+  font-size: 14px;
+  border: 2px solid var(--global-color, #000);
+  background-color: #fff;
+  box-shadow: none;
+}
 
 /*Like*/
 .button__icon {
@@ -126,16 +131,7 @@
 }
 .card__like-button {
   padding: 10px 35px;
-  background-color: transparent;
   cursor: pointer;
-}
-.card__like-button:focus {
-  outline: none;
-}
-.card__like-button:focus-visible {
-  box-shadow: 2px 2px 0px 0px var(--global-color, #000);
-  outline: none;
-  transition: box-shadow 0.3s ease;
 }
 
 /*Heart*/
@@ -165,9 +161,7 @@
   gap: 8px;
   margin-block-start: 50px;
   margin-block-end: 100px;
-  border: 0;
   padding: 15px 17px;
-  outline: 2px solid var(--global-color, #000);
   font-family: var(--accident-font), "fantasy";
   text-align: center;
   transition: outline 0.5s ease-in-out;
@@ -188,11 +182,6 @@
     flex: 0 0 28px;
     max-inline-size: 28px;
   }
-}
-.card__save-button:focus-visible {
-  box-shadow: 2px 2px 0px 0px var(--global-color, #000);
-  outline: none;
-  transition: box-shadow 0.3s ease;
 }
 
 /*псевдоэлемент*/
@@ -233,18 +222,24 @@
   color: #000;
   transition: 0.5s ease-in-out;
 }
-.focus-button {
-  font-family: var(--accident-font), "fantasy";
-  font-size: 14px;
-}
+
 /*focus*/
 .card__focus-button {
   position: relative;
   z-index: 1;
 }
+.focus-shadow:focus {
+  outline: none;
+  box-shadow: none;
+}
+.focus-shadow:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--global-color, #000);
+  transition: box-shadow 0.3s ease;
+}
 
 /*dialog-section*/
 dialog {
+  border: 0;
   padding: 28px;
   outline: 2px solid var(--global-color, #000);
   font-family: var(--accident-font), "fantasy";
@@ -263,6 +258,7 @@ dialog::backdrop {
   pointer-events: none;
 }
 .close {
+  box-shadow: none;
   width: 100%;
   padding: 10px 133px;
   cursor: pointer;
@@ -275,11 +271,6 @@ dialog::backdrop {
   @media (width <= 376px) {
     max-inline-size: clamp(338px, 50vw, 351px);
   }
-}
-.close:focus-visible {
-  box-shadow: 2px 2px 0px 0px var(--global-color, #000);
-  outline: none;
-  transition: box-shadow 0.3s ease;
 }
 .dialog__section-paragraph {
   line-height: 150%;
@@ -294,6 +285,9 @@ dialog::backdrop {
 .dialog__section-floppy {
   max-inline-size: 39px;
 }
+
+
+
 
 /*filters*/
 
