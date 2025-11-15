@@ -171,7 +171,6 @@
 }
 .card__save-floppy {
   flex: 0 0 21px;
-  fill: var(--global-color);
   fill: var(--alternative-color, #fff);
   max-inline-size: 21px;
   @media (width <=376px) {
@@ -232,7 +231,6 @@
 
 /*dialog-section*/
 dialog {
-  border: 0;
   border: 2px solid var(--global-color, #000);
   padding: 28px;
   font-family: var(--accident-font), Comic Sans MS;
