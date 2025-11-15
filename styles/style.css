@@ -13,7 +13,7 @@
 */
 
 .page {
-  font-family: var(--accident-font);
+  font-family: var(--accident-font), Comic Sans MS;
   font-weight: 400;
   font-size: 14px;
   background-image: var(--page-gradient);
@@ -29,12 +29,12 @@
   align-items: center;
   gap: 18px;
   margin: 100px auto 98px;
-  border: 2px solid #000;
+  border: 2px solid var(--global-color, #000);
   padding-block: 130px;
-  font-family: var(--accident-font);
+  font-family: var(--accident-font), Comic Sans MS;
   font-weight: 400;
   text-transform: uppercase;
-  background-color: #fff;
+  background-color: var(--background-color, #fff);
   @media (width <=376px) {
     padding-block: 122px;
   }
@@ -67,7 +67,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   border: 2px solid var(--global-color, #000);
-  background-color: #fff;
+  background-color: var(--background-color, #fff);
 }
 .card__text {
   padding-inline: var(--indentation-card, 25px);
@@ -94,7 +94,7 @@
   display: block;
   opacity: 0.4;
   color: var(--global-color, #000);
-  font-family: var(--accident-font), "fantasy";
+  font-family: var(--accident-font), Comic Sans MS;
   font-size: 14px;
   line-height: 150%;
   text-align: end;
@@ -113,11 +113,14 @@
   }
 }
 .focus-button {
-  font-family: var(--accident-font), "fantasy";
-  font-size: 14px;
+  position: relative;
+  z-index: 1;
   border: 2px solid var(--global-color, #000);
-  background-color: #fff;
   box-shadow: none;
+  font-family: var(--accident-font), Comic Sans MS;
+  font-size: 14px;
+  background-color: var(--background-color, #fff);
+  cursor: pointer;
 }
 
 /*Like*/
@@ -131,7 +134,6 @@
 }
 .card__like-button {
   padding: 10px 35px;
-  cursor: pointer;
 }
 
 /*Heart*/
@@ -152,6 +154,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-block-end: 100px;
 }
 .card__save-button {
   display: flex;
@@ -159,24 +162,17 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-block-start: 50px;
-  margin-block-end: 100px;
-  padding: 15px 17px;
-  font-family: var(--accident-font), "fantasy";
+  padding: 15px 18px;
   text-align: center;
-  transition: outline 0.5s ease-in-out;
-  cursor: pointer;
-
+  transition: border 0.5s ease-in-out;
   @media (min-width: 696px) {
     flex-direction: row;
   }
 }
 .card__save-floppy {
-  position: relative;
-  z-index: 2;
   flex: 0 0 21px;
   fill: var(--global-color);
-  transition: 0.5s ease-in-out;
+  fill: var(--alternative-color, #fff);
   max-inline-size: 21px;
   @media (width <=376px) {
     flex: 0 0 28px;
@@ -201,26 +197,23 @@
   background-color: var(--global-color, #000);
   transition: 0.5s ease-in-out;
 }
+
 .focus-button:hover {
   .button__text {
     position: relative;
     z-index: 2;
-    color: #fff;
-    mix-blend-mode: difference;
+    color: var(--alternative-color, #fff);
   }
   .card__save-floppy {
-    position: relative;
-    z-index: 2;
-    fill: #fff;
-    mix-blend-mode: difference;
+    fill: var(--alternative-color, #fff);
   }
 }
-
 .button__text {
   position: relative;
-  z-index: 2;
-  color: #000;
+  z-index: 10;
+  color: var(--alternative-color, #fff);
   transition: 0.5s ease-in-out;
+  mix-blend-mode: difference;
 }
 
 /*focus*/
@@ -229,8 +222,8 @@
   z-index: 1;
 }
 .focus-shadow:focus {
-  outline: none;
   box-shadow: none;
+  outline: none;
 }
 .focus-shadow:focus-visible {
   box-shadow: 2px 2px 0px 0px var(--global-color, #000);
@@ -240,9 +233,9 @@
 /*dialog-section*/
 dialog {
   border: 0;
+  border: 2px solid var(--global-color, #000);
   padding: 28px;
-  outline: 2px solid var(--global-color, #000);
-  font-family: var(--accident-font), "fantasy";
+  font-family: var(--accident-font), Comic Sans MS;
   font-size: 14px;
   text-transform: uppercase;
   @media (width <= 376px) {
@@ -258,10 +251,10 @@ dialog::backdrop {
   pointer-events: none;
 }
 .close {
-  box-shadow: none;
   width: 100%;
   padding: 10px 133px;
-  cursor: pointer;
+  box-shadow: none;
+  mix-blend-mode: difference;
   @media (width <= 376px) {
     padding: 11px 114px;
   }
@@ -285,9 +278,6 @@ dialog::backdrop {
 .dialog__section-floppy {
   max-inline-size: 39px;
 }
-
-
-
 
 /*filters*/
 

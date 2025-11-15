@@ -13,6 +13,8 @@
     linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
   --card-width: clamp(375px, 100vw, 700px);
   --global-color: #000;
+  --alternative-color: #fff;
+  --background-color: #fff;
   --indentation-card: 25px;
   --label-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
   --contour-color: #000;
